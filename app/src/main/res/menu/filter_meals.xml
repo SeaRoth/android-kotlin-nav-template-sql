@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/all"
+        android:title="@string/label_all" />
+    <item
+        android:id="@+id/favorite"
+        android:title="@string/label_favorite" />
+    <item
+        android:id="@+id/under_five"
+        android:title="@string/label_under_five" />
+    <item
+        android:id="@+id/under_ten"
+        android:title="@string/label_under_ten" />
+    <item
+        android:id="@+id/under_twenty"
+        android:title="@string/label_under_twenty" />
+</menu>
