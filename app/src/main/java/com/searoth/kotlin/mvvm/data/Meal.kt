@@ -28,11 +28,10 @@ data class Meal @JvmOverloads constructor(
         @ColumnInfo(name = "notes") var notes: String = "",
         @ColumnInfo(name = "ingredients") var ingredients: String = "",
         @ColumnInfo(name = "imageurl") var imageurl: String = "",
-        @PrimaryKey @ColumnInfo(name = "entryid") var id: String = UUID.randomUUID().toString()
+        @PrimaryKey @ColumnInfo(name = "entryid") var id: String = ""
 ){
-
-    @ColumnInfo(name = "views") var views = 0
     @ColumnInfo(name = "favorite") var isFavorite = false
+    @ColumnInfo(name = "views") var views: Int = 0
 
     val isMyFavorite
         get() = isFavorite

@@ -28,6 +28,10 @@ interface MealsDataSource{
 
     fun favoriteMeal(mealId: String)
 
+    fun unFavoriteMeal(meal: Meal)
+
+    fun unFavoriteMeal(mealId: String)
+
     fun viewMeal(meal: Meal)
 
     fun viewMeal(mealId: String)

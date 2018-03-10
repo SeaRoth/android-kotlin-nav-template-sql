@@ -8,6 +8,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import com.facebook.stetho.Stetho
 import com.searoth.kotlin.mvvm.R
 import com.searoth.kotlin.mvvm.addeditmeal.AddEditMealActivity
 import com.searoth.kotlin.mvvm.mealdetail.MealDetailActivity
@@ -27,6 +28,7 @@ class MealsActivity : AppCompatActivity(), MealItemNavigator, MealsNavigator {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Stetho.initializeWithDefaults(this)
         setContentView(R.layout.meals_act)
 
         setupActionBar(R.id.toolbar) {

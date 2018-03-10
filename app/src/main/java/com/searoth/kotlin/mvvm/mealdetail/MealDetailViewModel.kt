@@ -20,7 +20,6 @@ class MealDetailViewModel(
 ) : AndroidViewModel(context), MealsDataSource.GetMealCallback{
 
     val meal = ObservableField<Meal>()
-    val favorite = ObservableBoolean()
     val editMealCommand = SingleLiveEvent<Void>()
     val deleteMealCommand = SingleLiveEvent<Void>()
     val snackbarMessage = SingleLiveEvent<Int>()
@@ -50,6 +49,9 @@ class MealDetailViewModel(
         if(favorite){
             mealsRepository.favoriteMeal(meal)
             showSnackbarMessage(R.string.meal_marked_favorite)
+        }else{
+            mealsRepository.unFavoriteMeal(meal)
+            showSnackbarMessage(R.string.meal_marked_normal)
         }
     }
 

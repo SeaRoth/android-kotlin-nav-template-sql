@@ -122,6 +122,17 @@ class MealsRemoteDataSource private constructor(
 
     }
 
+    override fun unFavoriteMeal(meal: Meal) {
+        val favoriteMeal = Meal(meal.name, meal.rating, meal.price, meal.description, meal.notes, meal.ingredients, meal.imageurl, meal.id).apply {
+            isFavorite = false
+        }
+        MEALS_SERVICE_DATA[meal.id] = favoriteMeal
+    }
+
+    override fun unFavoriteMeal(mealId: String) {
+
+    }
+
     override fun viewMeal(meal: Meal) {
         val viewMeal = Meal(meal.name, meal.rating, meal.price, meal.description, meal.notes, meal.ingredients, meal.imageurl, meal.id).apply {
             views++

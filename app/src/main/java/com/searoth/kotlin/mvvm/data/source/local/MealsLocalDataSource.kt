@@ -12,6 +12,8 @@ class MealsLocalDataSource private constructor(
         val appExecutors: AppExecutors,
         val mealsDao: MealsDao
 ) : MealsDataSource {
+
+
     /**
      * Note: [LoadMealsCallback.onDataNotAvailable] is fired if the database doesn't exist
      * or the table is empty.
@@ -50,6 +52,14 @@ class MealsLocalDataSource private constructor(
     override fun favoriteMeal(mealId: String) {
         // Not required for the local data source because the {@link MealsRepository} handles
         // converting from a {@code mealId} to a {@link meal} using its cached data.
+    }
+
+    override fun unFavoriteMeal(meal: Meal) {
+        appExecutors.diskIO.execute{ mealsDao.updateFavorite(meal.id, false)}
+    }
+
+    override fun unFavoriteMeal(mealId: String) {
+
     }
 
     override fun viewMeal(meal: Meal) {

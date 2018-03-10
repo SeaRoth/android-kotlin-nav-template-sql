@@ -52,7 +52,7 @@ class MealDetailActivity : AppCompatActivity(), MealDetailNavigator {
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_EDIT_MEAL) {
-            // If the task was edited successfully, go back to the list.
+            // If the meal was edited successfully, go back to the list.
             if (resultCode == ADD_EDIT_RESULT_OK) {
                 // If the result comes from the add/edit screen, it's an edit.
                 setResult(EDIT_RESULT_OK)
@@ -68,14 +68,14 @@ class MealDetailActivity : AppCompatActivity(), MealDetailNavigator {
 
     override fun onMealDeleted() {
         setResult(DELETE_RESULT_OK)
-        // If the task was deleted successfully, go back to the list.
+        // If the meal was deleted successfully, go back to the list.
         finish()
     }
 
     override fun onStartEditMeal() {
-        val taskId = intent.getStringExtra(EXTRA_MEAL_ID)
+        val mealId = intent.getStringExtra(EXTRA_MEAL_ID)
         val intent = Intent(this, AddEditMealActivity::class.java).apply {
-            putExtra(AddEditMealFragment.ARGUMENT_EDIT_MEAL_ID, taskId)
+            putExtra(AddEditMealFragment.ARGUMENT_EDIT_MEAL_ID, mealId)
         }
         startActivityForResult(intent, REQUEST_EDIT_MEAL)
     }

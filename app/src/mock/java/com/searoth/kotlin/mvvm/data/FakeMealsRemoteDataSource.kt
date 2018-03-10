@@ -13,7 +13,6 @@ import java.util.LinkedHashMap
  */
 object FakeMealsRemoteDataSource : MealsDataSource {
 
-
     override fun getMeals(callback: MealsDataSource.LoadMealsCallback) {
         callback.onMealsLoaded(Lists.newArrayList(MEALS_SERVICE_DATA.values))
     }
@@ -34,6 +33,16 @@ object FakeMealsRemoteDataSource : MealsDataSource {
     }
 
     override fun favoriteMeal(mealId: String){
+        //not req
+    }
+
+    override fun unFavoriteMeal(meal: Meal) {
+        val favoriteMeal = Meal(meal.name, meal.rating, meal.price, meal.description, meal.notes, meal.ingredients,meal.imageurl,meal.id)
+        favoriteMeal.isFavorite = false
+        MEALS_SERVICE_DATA[meal.id] = favoriteMeal
+    }
+
+    override fun unFavoriteMeal(mealId: String) {
         //not req
     }
 

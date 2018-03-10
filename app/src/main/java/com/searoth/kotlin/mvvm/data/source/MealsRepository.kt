@@ -21,7 +21,7 @@ class MealsRepository(
     var cacheIsDirty = false
 
     /**
-     * Gets tasks from cache, local data source (SQLite) or remote data source, whichever is
+     * Gets meals from cache, local data source (SQLite) or remote data source, whichever is
      * available first.
      *
      *
@@ -70,9 +70,23 @@ class MealsRepository(
         }
     }
 
-    override fun favoriteMeal(taskId: String) {
-        getMealWithId(taskId)?.let {
+    override fun favoriteMeal(mealId: String) {
+        getMealWithId(mealId)?.let {
             favoriteMeal(it)
+        }
+    }
+
+    override fun unFavoriteMeal(meal: Meal) {
+        cacheAndPerform(meal) {
+            it.isFavorite = false
+            mealsRemoteDataSource.unFavoriteMeal(it)
+            mealsLocalDataSource.unFavoriteMeal(it)
+        }
+    }
+
+    override fun unFavoriteMeal(mealId: String) {
+        getMealWithId(mealId)?.let {
+            unFavoriteMeal(it)
         }
     }
 

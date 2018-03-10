@@ -30,7 +30,7 @@ class AddEditMealFragment : Fragment(){
     }
 
     private fun loadData() {
-        // Add or edit an existing task?
+        // Add or edit an existing meal?
         viewDataBinding.viewmodel?.start(arguments?.getString(ARGUMENT_EDIT_MEAL_ID))
     }
 
@@ -62,7 +62,7 @@ class AddEditMealFragment : Fragment(){
     }
 
     companion object {
-        const val ARGUMENT_EDIT_MEAL_ID = "EDIT_TASK_ID"
+        const val ARGUMENT_EDIT_MEAL_ID = "EDIT_MEAL_ID"
 
         fun newInstance() = AddEditMealFragment()
     }

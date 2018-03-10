@@ -43,7 +43,7 @@ import com.searoth.kotlin.mvvm.data.Meal
     /**
      * update the price of a meal
      */
-    @Query("UPDATE Meals SET favorite = :favorite WHERE entryid = :mealId")
+    @Query("UPDATE meals SET favorite = :favorite WHERE entryid = :mealId")
     fun updateFavorite(mealId: String, favorite: Boolean)
 
     /**

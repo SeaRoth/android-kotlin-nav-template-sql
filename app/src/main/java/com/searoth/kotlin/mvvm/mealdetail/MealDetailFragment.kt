@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.*
+import android.widget.CheckBox
 import com.searoth.kotlin.mvvm.R
 import com.searoth.kotlin.mvvm.databinding.MealdetailFragBinding
 import com.searoth.kotlin.mvvm.util.setupSnackbar
@@ -44,7 +45,7 @@ class MealDetailFragment : Fragment() {
             viewmodel = (activity as MealDetailActivity).obtainViewModel()
             listener = object : MealDetailUserActionsListener {
                 override fun onFavoriteChanged(v: View) {
-                    viewmodel?.setFavorite(true)
+                    viewmodel?.setFavorite((v as CheckBox).isChecked)
                 }
             }
         }

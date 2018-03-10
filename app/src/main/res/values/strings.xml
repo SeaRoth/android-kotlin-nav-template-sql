@@ -9,7 +9,7 @@
     <string name="add_meal">New Meal</string>
     <string name="edit_meal">Edit Meal</string>
     <string name="meal_marked_favorite">Meal marked favorite</string>
-    <string name="meal_marked_active">Meal marked active</string>
+    <string name="meal_marked_normal">Meal no longer marked favorite!</string>
     <string name="loading_meals_error">Error while loading meals</string>
     <string name="favorite_meals_cleared">Favorite meals cleared</string>
     <string name="menu_search">Search</string>
