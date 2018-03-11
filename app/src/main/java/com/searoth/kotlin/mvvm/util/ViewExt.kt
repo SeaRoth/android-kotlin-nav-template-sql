@@ -6,9 +6,13 @@ import android.databinding.BindingAdapter
 import android.support.design.widget.Snackbar
 import android.support.v4.widget.SwipeRefreshLayout
 import android.view.View
+import android.widget.ImageView
+import com.searoth.kotlin.mvvm.R
 import com.searoth.kotlin.mvvm.ScrollChildSwipeRefreshLayout
 import com.searoth.kotlin.mvvm.SingleLiveEvent
 import com.searoth.kotlin.mvvm.meals.MealsViewModel
+import com.squareup.picasso.Picasso
+
 /**
  * Transforms static java function Snackbar.make() to an extension function on View.
  */
@@ -34,4 +38,12 @@ fun View.setupSnackbar(lifecycleOwner: LifecycleOwner,
 fun ScrollChildSwipeRefreshLayout.setSwipeRefreshLayoutOnRefreshListener(
         viewModel: MealsViewModel){
     setOnRefreshListener{viewModel.loadMeals(true)}
+}
+
+@BindingAdapter("app:imageUrl")
+fun loadImage(view: ImageView, imageUrl: String) {
+    Picasso.with(view.context)
+            .load(imageUrl)
+            .placeholder(R.drawable.ic_add)
+            .into(view)
 }

@@ -110,6 +110,9 @@ class MealsViewModel(
         if(favorite){
             mealsRepository.favoriteMeal(meal)
             showSnackbarMessage(R.string.meal_marked_favorite)
+        }else{
+            mealsRepository.unFavoriteMeal(meal)
+            showSnackbarMessage(R.string.favorite_meals_cleared)
         }
     }
 
@@ -144,8 +147,10 @@ class MealsViewModel(
     private fun loadMeals(forceUpdate: Boolean, showloadingUI: Boolean){
         if(showloadingUI)
             dataLoading.set(true)
-        if(forceUpdate)
+        if(forceUpdate) {
+            showSnackbarMessage(R.string.refresh_remote_source)
             mealsRepository.refreshMeals()
+        }
 
         mealsRepository.getMeals(object : MealsDataSource.LoadMealsCallback {
             override fun onMealsLoaded(meals: List<Meal>) {

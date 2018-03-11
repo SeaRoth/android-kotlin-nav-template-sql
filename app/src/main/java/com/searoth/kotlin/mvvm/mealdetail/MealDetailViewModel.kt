@@ -60,6 +60,7 @@ class MealDetailViewModel(
         mealId.let {
             isDataLoading = true
             mealsRepository.getMeal(it, this)
+            mealsRepository.viewMeal(it)
         }
     }
 

@@ -68,7 +68,6 @@ class MealsRepository(
             mealsRemoteDataSource.favoriteMeal(it)
             mealsLocalDataSource.favoriteMeal(it)
         }
-        refreshMeals()
     }
 
     override fun favoriteMeal(mealId: String) {
@@ -83,7 +82,6 @@ class MealsRepository(
             mealsRemoteDataSource.unFavoriteMeal(it)
             mealsLocalDataSource.unFavoriteMeal(it)
         }
-        refreshMeals()
     }
 
     override fun unFavoriteMeal(mealId: String) {
@@ -204,7 +202,7 @@ class MealsRepository(
 
     private inline fun cacheAndPerform(meal: Meal, perform: (Meal) -> Unit){
         val cachedMeal = Meal(meal.name, meal.rating, meal.price, meal.description, meal.notes, meal.ingredients, meal.imageurl, meal.id).apply{
-            name = meal.name
+            isFavorite = meal.isFavorite
         }
         cachedMeals[cachedMeal.id] = cachedMeal
         perform(cachedMeal)
