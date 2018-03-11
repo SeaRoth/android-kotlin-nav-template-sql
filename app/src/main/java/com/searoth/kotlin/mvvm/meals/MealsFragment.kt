@@ -21,6 +21,8 @@ class MealsFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private lateinit var viewDataBinding: MealsFragBinding
     private lateinit var listAdapter: MealsAdapter
+    var searchView: SearchView? = null
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewDataBinding = MealsFragBinding.inflate(inflater, container, false).apply {

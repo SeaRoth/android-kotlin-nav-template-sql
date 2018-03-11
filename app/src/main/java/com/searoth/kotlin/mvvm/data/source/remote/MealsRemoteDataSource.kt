@@ -68,7 +68,7 @@ class MealsRemoteDataSource private constructor(
                                 meal.price.toFloat(),
                                 meal.description,
                                 meal.notes,
-                                meal.ingredients.toString(),
+                                meal.ingredients.joinToString("\n","","",-1, "...",null),
                                 meal.imageUrl,
                                 meal.id.toString()
                         )

@@ -95,19 +95,18 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Servings: 5"
+                        android:text="@string/label_servings"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/rb_detail_rating" />
 
                     <TextView
-                        android:id="@+id/textView6"
+                        android:id="@+id/tv_horizontal_border"
                         android:layout_width="0dp"
                         android:layout_height="1dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:background="@android:color/darker_gray"
-                        android:text="TextView"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -147,7 +146,7 @@
                         android:layout_marginEnd="8dp"
                         android:layout_marginRight="8dp"
                         android:layout_marginTop="16dp"
-                        android:text="Availability"
+                        android:text="@string/label_availability"
                         android:textColor="@android:color/holo_green_dark"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -178,7 +177,7 @@
                         android:tint="@android:color/holo_green_dark"
                         app:civ_circle_background_color="@android:color/holo_green_dark"
                         app:layout_constraintEnd_toStartOf="@+id/iv_detail_second"
-                        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_horizontal_border" />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/iv_detail_second"
@@ -191,7 +190,7 @@
                         android:tint="@android:color/holo_green_dark"
                         app:civ_circle_background_color="@android:color/holo_green_dark"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                        app:layout_constraintTop_toBottomOf="@+id/tv_horizontal_border" />
 
                     <TextView
                         android:id="@+id/tv_detail_price"
@@ -200,7 +199,7 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="price"
+                        android:text="@{Float.toString(viewmodel.meal.price)}"
                         android:textSize="12sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tv_detail_servings" />
@@ -222,7 +221,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="8dp"
                         android:layout_marginStart="8dp"
-                        android:text="About Us Savorly is a startup on a mission to revolutionize the on-demand meal prep and food-delivery marketplace. We are based in downtown Los Angeles and well-funded by a small group of investors with extensive background — and well-known regional brands— in the retail and food industries.  Coming from diverse backgrounds, we conceived the idea for Savorly at our own dinner tables. “Wouldn’t it be great if other people could taste Mom’s delicious dishes? What if you could order from her one night instead of a pizza?” With our daily lives getting busier, and people eating out (or ordering food delivery) more and more, a good home cooked meal is becoming a rarity. We are passionate about making homemade foods accessible – and just as easy to ordering take out from your favorite restaurant. We are equally excited to provide an opportunity for great local cooks to earn additional income doing what they already love to do."
+                        android:text="@{viewmodel.meal.notes}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -245,11 +244,11 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="Description"
+                        android:text="@string/label_description"
                         android:textColor="@android:color/black"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/textView6" />
+                        app:layout_constraintTop_toTopOf="@+id/tv_horizontal_border" />
 
                     <TextView
                         android:id="@+id/textView8"
@@ -257,7 +256,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginStart="8dp"
-                        android:text="Ingredients"
+                        android:text="@string/label_ingredients"
                         android:textColor="@android:color/black"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
@@ -269,7 +268,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_marginStart="8dp"
-                        android:text="Notes"
+                        android:text="@string/label_notes"
                         android:textColor="@android:color/black"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"

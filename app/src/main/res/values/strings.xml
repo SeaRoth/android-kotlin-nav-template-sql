@@ -50,6 +50,16 @@
     <string name="label_under_twenty">Under $20</string>
     <string name="label_all">All meals</string>
     <string name="label_active">Active meals</string>
+    <!-- labels  -->
+    <string name="label_servings">Servings</string>
+    <string name="label_availability">Availability</string>
+    <string name="label_notes">Notes</string>
+    <string name="label_ingredients">Ingredients</string>
+    <string name="label_description">Description</string>
+
+
+    <!-- labels  -->
+    
     <string name="no_meals_all">You have no meals</string>
     <string name="no_meals_active">No meals match this filter!</string>
     <string name="no_meals_favorited">You have no meals favorited!</string>

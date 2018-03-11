@@ -65,7 +65,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/rb_detail_rating" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tv_horizontal_border"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_marginEnd="8dp"
@@ -126,7 +126,7 @@
                 android:tint="@android:color/holo_green_dark"
                 app:civ_circle_background_color="@android:color/holo_green_dark"
                 app:layout_constraintEnd_toStartOf="@+id/iv_detail_second"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_horizontal_border" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/iv_detail_second"
@@ -138,7 +138,7 @@
                 android:tint="@android:color/holo_green_dark"
                 app:civ_circle_background_color="@android:color/holo_green_dark"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView6" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_horizontal_border" />
 
             <TextView
                 android:id="@+id/tv_detail_price"
@@ -194,7 +194,7 @@
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView6" />
+                app:layout_constraintTop_toTopOf="@+id/tv_horizontal_border" />
 
             <TextView
                 android:id="@+id/textView8"

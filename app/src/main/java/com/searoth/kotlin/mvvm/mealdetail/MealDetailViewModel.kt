@@ -66,7 +66,6 @@ class MealDetailViewModel(
 
     fun setMeal(meal: Meal){
         this.meal.set(meal)
-        //favorite.set(meal.isFavorite)
     }
 
     override fun onMealLoaded(meal: Meal) {

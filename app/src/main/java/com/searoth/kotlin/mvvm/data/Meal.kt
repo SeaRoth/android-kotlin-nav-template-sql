@@ -3,8 +3,6 @@ package com.searoth.kotlin.mvvm.data
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
-import java.util.*
-
 
 /**
  * Immutable model class for a Meal. In order to compile with Room, we can't use @JvmOverloads to
