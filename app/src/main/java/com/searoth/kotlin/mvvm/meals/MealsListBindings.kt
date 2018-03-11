@@ -18,7 +18,7 @@ object MealsListBindings {
         }
     }
 
-    @BindingAdapter("imageUrl")
+    @BindingAdapter("app:imageUrl")
     @JvmStatic fun loadImage(view: ImageView, imageUrl: String) {
         Picasso.with(view.context)
                 .load(imageUrl)

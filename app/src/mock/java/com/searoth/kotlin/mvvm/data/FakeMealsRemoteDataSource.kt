@@ -57,7 +57,7 @@ object FakeMealsRemoteDataSource : MealsDataSource {
 
     override fun clearFavoriteMeals(){
         MEALS_SERVICE_DATA = MEALS_SERVICE_DATA.filterValues {
-            !it.isMyFavorite
+            !it.isFavorite
         } as LinkedHashMap<String, Meal>
     }
 

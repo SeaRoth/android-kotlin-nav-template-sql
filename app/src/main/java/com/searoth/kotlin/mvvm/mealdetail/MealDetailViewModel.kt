@@ -6,6 +6,7 @@ import android.databinding.ObservableBoolean
 import android.databinding.ObservableField
 import android.support.annotation.StringRes
 import com.searoth.kotlin.mvvm.R
+import com.searoth.kotlin.mvvm.R.id.favorite
 import com.searoth.kotlin.mvvm.SingleLiveEvent
 import com.searoth.kotlin.mvvm.data.Meal
 import com.searoth.kotlin.mvvm.data.source.MealsDataSource
@@ -64,7 +65,7 @@ class MealDetailViewModel(
 
     fun setMeal(meal: Meal){
         this.meal.set(meal)
-
+        //favorite.set(meal.isFavorite)
     }
 
     override fun onMealLoaded(meal: Meal) {

@@ -68,6 +68,7 @@ class MealsRepository(
             mealsRemoteDataSource.favoriteMeal(it)
             mealsLocalDataSource.favoriteMeal(it)
         }
+        refreshMeals()
     }
 
     override fun favoriteMeal(mealId: String) {
@@ -82,6 +83,7 @@ class MealsRepository(
             mealsRemoteDataSource.unFavoriteMeal(it)
             mealsLocalDataSource.unFavoriteMeal(it)
         }
+        refreshMeals()
     }
 
     override fun unFavoriteMeal(mealId: String) {
@@ -110,7 +112,7 @@ class MealsRepository(
         mealsLocalDataSource.clearFavoriteMeals()
 
         cachedMeals = cachedMeals.filterValues {
-            !it.isMyFavorite
+            !it.isFavorite
         } as LinkedHashMap<String, Meal>
     }
 
@@ -122,8 +124,6 @@ class MealsRepository(
      */
     override fun getMeal(mealId: String, callback: MealsDataSource.GetMealCallback) {
         val mealInCache = getMealWithId(mealId)
-
-        //repond immediately with cache if avail
         if(mealInCache != null){
             callback.onMealLoaded(mealInCache)
             return

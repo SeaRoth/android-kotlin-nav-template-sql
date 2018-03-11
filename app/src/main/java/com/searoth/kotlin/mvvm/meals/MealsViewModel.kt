@@ -156,7 +156,7 @@ class MealsViewModel(
                     MealsFilterType.ALL_MEALS ->
                             mealsToShow = meals
                     MealsFilterType.FAVORITES ->
-                            mealsToShow = meals.filter { it.isMyFavorite }
+                            mealsToShow = meals.filter { it.isFavorite }
                     MealsFilterType.UNDER_FIVE ->
                             mealsToShow = meals.filter { it.price < 5.0f }
                     MealsFilterType.UNDER_TEN ->

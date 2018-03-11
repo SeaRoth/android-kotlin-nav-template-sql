@@ -33,33 +33,6 @@ data class Meal @JvmOverloads constructor(
     @ColumnInfo(name = "favorite") var isFavorite = false
     @ColumnInfo(name = "views") var views: Int = 0
 
-    val isMyFavorite
-        get() = isFavorite
-
-    val idForMeal: String
-        get() = if (id.isEmpty()) id else ""
-
-    val nameForMeal: String
-        get() = if (name.isNotEmpty()) name else description
-
-    val imageForMeal: String
-        get() = if (imageurl.isNotEmpty()) imageurl else ""
-
-    val ratingForMeal: Float
-        get() = if (rating != 0.0f) rating else 0.0f
-
-    val priceForMeal: Float
-        get() = if (price != 0.0f) price else 0.0f
-
-    val descriptionForMeal: String
-        get() = if (description.isNotEmpty()) description else ""
-
-    val notesForMeal: String
-        get() = if (notes.isNotEmpty()) notes else ""
-
-    val ingredientsForMeal: String
-        get() = if (ingredients.isNotEmpty()) ingredients else ""
-
     val isEmpty
         get() = name.isEmpty() && description.isEmpty()
 }

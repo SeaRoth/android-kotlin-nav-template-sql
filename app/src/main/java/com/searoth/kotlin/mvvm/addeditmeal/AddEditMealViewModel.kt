@@ -60,7 +60,7 @@ class AddEditMealViewModel(
     override fun onMealLoaded(meal: Meal) {
         name.set(meal.name)
         description.set(meal.description)
-        mealFavorited = meal.isMyFavorite
+        mealFavorited = meal.isFavorite
         dataLoading.set(false)
         isDataLoaded = true
         //no need to notify the values changed because we're using ObservableFields
