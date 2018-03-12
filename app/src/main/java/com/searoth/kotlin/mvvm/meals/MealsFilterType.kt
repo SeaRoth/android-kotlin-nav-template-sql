@@ -8,5 +8,6 @@ enum class MealsFilterType{
     FAVORITES,
     UNDER_FIVE,
     UNDER_TEN,
-    UNDER_TWENTY
+    UNDER_TWENTY,
+    CUSTOM
 }

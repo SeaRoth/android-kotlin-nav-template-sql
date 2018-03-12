@@ -48,6 +48,7 @@
     <string name="label_under_five">Under $5</string>
     <string name="label_under_ten">Under $10</string>
     <string name="label_under_twenty">Under $20</string>
+    <string name="label_custom">Custom</string>
     <string name="label_all">All meals</string>
     <string name="label_active">Active meals</string>
     <!-- labels  -->
@@ -62,6 +63,7 @@
     
     <string name="no_meals_all">You have no meals</string>
     <string name="no_meals_active">No meals match this filter!</string>
+    <string name="search_custom">Custom Search</string>
     <string name="no_meals_favorited">You have no meals favorited!</string>
     <string name="no_meals_add">Add a meal</string>
     <string name="refresh">Refresh</string>

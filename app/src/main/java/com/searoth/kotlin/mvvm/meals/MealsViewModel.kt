@@ -10,12 +10,14 @@ import android.databinding.ObservableList
 import android.graphics.drawable.Drawable
 import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
+import android.util.Log
 import com.searoth.kotlin.mvvm.R
 import com.searoth.kotlin.mvvm.SingleLiveEvent
 import com.searoth.kotlin.mvvm.addeditmeal.AddEditMealActivity
 import com.searoth.kotlin.mvvm.data.Meal
 import com.searoth.kotlin.mvvm.data.source.MealsDataSource
 import com.searoth.kotlin.mvvm.data.source.MealsRepository
+import com.searoth.kotlin.mvvm.other.Models
 import com.searoth.kotlin.mvvm.util.ADD_EDIT_RESULT_OK
 import com.searoth.kotlin.mvvm.util.DELETE_RESULT_OK
 import com.searoth.kotlin.mvvm.util.EDIT_RESULT_OK
@@ -36,8 +38,10 @@ class MealsViewModel(
 
     //observable fields will update Views auto
     val items: ObservableList<Meal> = ObservableArrayList()
+    val nameIds: ObservableArrayList<Models.NameId> = ObservableArrayList()
     var dataLoading = ObservableBoolean(false)
     var currentFilteringLabel = ObservableField<String>()
+    var currentFilteringString = ObservableField<String>()
     var noMealsLabel = ObservableField<String>()
     val noMealsIconRes = ObservableField<Drawable>()
     val empty = ObservableBoolean()
@@ -59,13 +63,7 @@ class MealsViewModel(
         loadMeals(forceUpdate, true)
     }
 
-    /**
-     * Sets current task filtering type
-     *
-     * @param requestType Can be [MealsFilterType.ALL_MEALS] .. etc
-     */
     fun updateFiltering(){
-        //Depending on filter type, set label, etc
         when(currentFiltering){
             MealsFilterType.ALL_MEALS -> {
                 setFilter(R.string.label_all, R.string.no_meals_active,
@@ -85,6 +83,11 @@ class MealsViewModel(
             }
             MealsFilterType.UNDER_TWENTY -> {
                 setFilter(R.string.label_under_twenty, R.string.no_meals_active,
+                        R.drawable.ic_verified_user_24dp, false)
+            }
+            MealsFilterType.CUSTOM -> {
+                Log.i("MVM", currentFilteringString.toString())
+                setFilter(R.string.label_custom, R.string.search_custom,
                         R.drawable.ic_verified_user_24dp, false)
             }
         }
@@ -168,6 +171,8 @@ class MealsViewModel(
                             mealsToShow = meals.filter { it.price < 10.0f }
                     MealsFilterType.UNDER_TWENTY ->
                         mealsToShow = meals.filter { it.price < 20.0f }
+                    MealsFilterType.CUSTOM ->
+                        mealsToShow = meals.filter { it.name.compareTo(currentFilteringString.toString()) > -1 }
                 }
 
                 if (showloadingUI)
@@ -178,6 +183,11 @@ class MealsViewModel(
                     clear()
                     addAll(mealsToShow)
                     empty.set(isEmpty())
+                }
+                //make the models
+                items.forEach {
+                    val nameId = Models.NameId(it.name,it.id)
+                    nameIds.add(nameId)
                 }
             }
 

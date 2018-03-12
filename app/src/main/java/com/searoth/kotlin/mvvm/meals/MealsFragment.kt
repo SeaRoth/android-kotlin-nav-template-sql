@@ -5,8 +5,6 @@ import android.support.design.widget.FloatingActionButton
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
-import android.support.v4.view.MenuItemCompat.getActionView
-import android.support.v7.widget.SearchView
 import android.util.Log
 import android.view.*
 import android.widget.PopupMenu
@@ -17,12 +15,9 @@ import com.searoth.kotlin.mvvm.util.setupSnackbar
 /**
  * Created by cr on 2/26/2018.
  */
-class MealsFragment : Fragment(), SearchView.OnQueryTextListener {
-
+class MealsFragment : Fragment(){
     private lateinit var viewDataBinding: MealsFragBinding
     private lateinit var listAdapter: MealsAdapter
-    var searchView: SearchView? = null
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         viewDataBinding = MealsFragBinding.inflate(inflater, container, false).apply {
@@ -50,20 +45,8 @@ class MealsFragment : Fragment(), SearchView.OnQueryTextListener {
             else -> false
         }
 
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        return false
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        return true
-    }
-
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater) {
         inflater.inflate(R.menu.meals_fragment_menu, menu)
-
-        val searchItem = menu!!.findItem(R.id.action_search)
-        (getActionView(searchItem) as SearchView?)?.setOnQueryTextListener(this)
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -135,6 +118,7 @@ class MealsFragment : Fragment(), SearchView.OnQueryTextListener {
     companion object {
         fun newInstance() = MealsFragment()
         private const val TAG = "MealsFragment"
+
     }
 
 

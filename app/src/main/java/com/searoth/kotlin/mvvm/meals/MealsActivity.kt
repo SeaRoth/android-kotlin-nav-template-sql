@@ -7,7 +7,14 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.AppCompatActivity
+import android.text.method.TextKeyListener.clear
+import android.view.Menu
+
 import android.view.MenuItem
+import ca.allanwang.kau.searchview.SearchItem
+import ca.allanwang.kau.searchview.SearchView
+import ca.allanwang.kau.searchview.bindSearchView
+import ca.allanwang.kau.utils.toast
 import com.facebook.stetho.Stetho
 import com.searoth.kotlin.mvvm.R
 import com.searoth.kotlin.mvvm.addeditmeal.AddEditMealActivity
@@ -16,15 +23,19 @@ import com.searoth.kotlin.mvvm.util.obtainViewModel
 import com.searoth.kotlin.mvvm.util.replaceFragmentInActivity
 import com.searoth.kotlin.mvvm.util.setupActionBar
 
-
 /**
  * Created by cr on 2/26/2018.
  */
-class MealsActivity : AppCompatActivity(), MealItemNavigator, MealsNavigator {
+class MealsActivity : AppCompatActivity(), MealItemNavigator, MealsNavigator{
 
     private lateinit var drawerLayout: DrawerLayout
-
     private lateinit var viewModel: MealsViewModel
+
+    var searchView: SearchView? = null
+
+    companion object {
+        var wordBank: MutableList<String> = mutableListOf("taco","truck")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +63,38 @@ class MealsActivity : AppCompatActivity(), MealItemNavigator, MealsNavigator {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+
+        if (searchView == null) searchView = bindSearchView(menu!!, R.id.action_search) {
+
+            wordBank.clear()
+            viewModel.nameIds.forEach {
+                wordBank.add(it.name)
+            }
+
+            textCallback = { query, searchView ->
+                val items = wordBank.filter { it.contains(query) }.sorted().map { SearchItem(it) }
+                searchView.results = items
+            }
+            searchCallback = { query, _ ->
+                toast("Enter pressed for $query")
+                true
+            }
+            textDebounceInterval = 0
+            noResultsFound = R.string.kau_no_results_found
+            shouldClearOnClose = false
+            onItemClick = { _, _, content, searchView ->
+                viewModel.currentFiltering = MealsFilterType.CUSTOM
+                viewModel.currentFilteringString.set(content)
+                viewModel.updateFiltering()
+                viewModel.loadMeals(false)
+                searchView.revealClose()
+            }
+        }
+        return super.onCreateOptionsMenu(menu)
+    }
+
     private fun setupViewFragment() {
         supportFragmentManager.findFragmentById(R.id.contentFrame) ?:
         MealsFragment.newInstance().let {
@@ -73,8 +116,13 @@ class MealsActivity : AppCompatActivity(), MealItemNavigator, MealsNavigator {
                     drawerLayout.openDrawer(GravityCompat.START)
                     true
                 }
+
                 else -> super.onOptionsItemSelected(item)
             }
+
+    override fun onBackPressed() {
+        if (searchView?.onBackPressed() != true) super.onBackPressed()
+    }
 
     private fun setupDrawerContent(navigationView: NavigationView) {
         navigationView.setNavigationItemSelectedListener { menuItem ->

@@ -31,6 +31,8 @@ package com.searoth.kotlin.mvvm.other
 //}
 class Models{
 
+    class NameId(val name: String, val id: String)
+
     class User(val id: Int, val name: String, val email: String, val imageUrl: String, val username: String)
 
     class LocalFeed(var user: User, val meals: List<FoodItem>)

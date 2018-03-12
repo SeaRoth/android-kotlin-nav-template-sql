@@ -3,6 +3,11 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 
 android {
+
+    dataBinding{
+        enabled = true
+    }
+
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
@@ -28,6 +33,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     flavorDimensions "default"
 
     // If you need to add more flavors, consider using flavor dimensions.
@@ -39,10 +49,6 @@ android {
         prod {
             dimension "default"
         }
-    }
-
-    dataBinding{
-        enabled = true
     }
 }
 
@@ -57,12 +63,15 @@ dependencies {
     implementation "com.google.guava:guava:$rootProject.guavaVersion"
     implementation "com.facebook.stetho:stetho:1.5.0"
 
+    implementation "ca.allanwang.kau:core:$rootProject.KAU"
+    implementation "ca.allanwang.kau:kpref-activity:$rootProject.KAU"
+    implementation "ca.allanwang.kau:searchview:$rootProject.KAU"
+
+    kapt "com.android.databinding:compiler:$gradlePluginVersion"
     kapt "android.arch.persistence.room:compiler:$rootProject.roomVersion"
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
-
-    // Android Testing Support Library's runner and rules
     androidTestCompile "com.android.support.test:runner:$rootProject.ext.runnerVersion"
     androidTestCompile "com.android.support.test:rules:$rootProject.ext.rulesVersion"
 
@@ -77,11 +86,8 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     implementation 'com.google.code.gson:gson:2.8.2'
-
-    //implementation "ca.allanwang.kau:core:3.7.0"
-    //implementation "com.github.Yalantis:SearchFilter:v1.0.4"
-    //implementation 'com.github.mancj:MaterialSearchBar:0.7.6'
-    compile 'de.clemenskeppler:MaterialSearchView:1.0.4'
+    implementation "com.github.Yalantis:SearchFilter:v1.0.4"
+    implementation 'com.github.mancj:MaterialSearchBar:0.7.6'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
 
     // Resolve conflicts between main and test APK:
@@ -93,9 +99,9 @@ dependencies {
     androidTestCompile "com.android.support:design:$rootProject.supportLibraryVersion"
     androidTestCompile "com.android.support.test.espresso.idling:idling-concurrent:$rootProject.espressoVersion"
     androidTestCompile "android.arch.persistence.room:testing:$rootProject.roomVersion"
-    implementation 'com.google.code.findbugs:jsr305:3.0.1'
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
 
-    kapt "com.android.databinding:compiler:$gradlePluginVersion"
+
 
 
 }
