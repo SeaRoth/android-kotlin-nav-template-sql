@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.CheckBox
 import com.searoth.kotlin.mvvm.data.Meal
-import com.searoth.kotlin.mvvm.databinding.MealItemBinding
+import com.searoth.kotlin.mvvm.databinding.MealRowBinding
 
 /**
  * Created by cr on 2/26/2018.
@@ -28,15 +28,15 @@ class MealsAdapter(
     override fun getCount() = meals.size
 
     override fun getView(position: Int, view: View?, viewGroup: ViewGroup): View {
-        val binding: MealItemBinding
+        val binding: MealRowBinding
         if (view == null){
             //inflate
             var inflater = LayoutInflater.from(viewGroup.context)
             //create the binding
-            binding = MealItemBinding.inflate(inflater, viewGroup, false)
+            binding = MealRowBinding.inflate(inflater, viewGroup, false)
         }else{
             //Recycling view
-            binding = DataBindingUtil.getBinding<MealItemBinding>(view)
+            binding = DataBindingUtil.getBinding<MealRowBinding>(view)
         }
 
         val userActionListener = object : MealItemUserActionListener {

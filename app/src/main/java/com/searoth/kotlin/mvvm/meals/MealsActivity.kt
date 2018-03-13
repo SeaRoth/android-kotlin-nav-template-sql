@@ -31,11 +31,7 @@ class MealsActivity : AppCompatActivity(), MealItemNavigator, MealsNavigator{
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var viewModel: MealsViewModel
 
-    var searchView: SearchView? = null
-
-    companion object {
-        var wordBank: MutableList<String> = mutableListOf("taco","truck")
-    }
+    private var searchView: SearchView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,23 +63,27 @@ class MealsActivity : AppCompatActivity(), MealItemNavigator, MealsNavigator{
         menuInflater.inflate(R.menu.main, menu)
 
         if (searchView == null) searchView = bindSearchView(menu!!, R.id.action_search) {
+            hintText = "Enter location, food name or business"
+            textDebounceInterval = 0
+            noResultsFound = R.string.kau_no_results_found
+            shouldClearOnClose = true
 
-            wordBank.clear()
-            viewModel.nameIds.forEach {
-                wordBank.add(it.name)
+            textClearedCallback = { searchView ->
+                val items = viewModel.mealNames.filter { true }.sorted().map { SearchItem(it) }
+                searchView.results = items
+                true
             }
 
             textCallback = { query, searchView ->
-                val items = wordBank.filter { it.contains(query) }.sorted().map { SearchItem(it) }
+                val items = viewModel.mealNames.filter { it.contains(query) }.sorted().map { SearchItem(it) }
                 searchView.results = items
             }
+
             searchCallback = { query, _ ->
                 toast("Enter pressed for $query")
                 true
             }
-            textDebounceInterval = 0
-            noResultsFound = R.string.kau_no_results_found
-            shouldClearOnClose = false
+
             onItemClick = { _, _, content, searchView ->
                 viewModel.currentFiltering = MealsFilterType.CUSTOM
                 viewModel.currentFilteringString.set(content)

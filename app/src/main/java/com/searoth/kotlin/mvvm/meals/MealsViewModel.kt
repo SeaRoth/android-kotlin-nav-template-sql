@@ -38,7 +38,8 @@ class MealsViewModel(
 
     //observable fields will update Views auto
     val items: ObservableList<Meal> = ObservableArrayList()
-    val nameIds: ObservableArrayList<Models.NameId> = ObservableArrayList()
+    var nameIds: ObservableArrayList<Models.NameId> = ObservableArrayList()
+    var mealNames: ObservableList<String> = ObservableArrayList()
     var dataLoading = ObservableBoolean(false)
     var currentFilteringLabel = ObservableField<String>()
     var currentFilteringString = ObservableField<String>()
@@ -172,7 +173,7 @@ class MealsViewModel(
                     MealsFilterType.UNDER_TWENTY ->
                         mealsToShow = meals.filter { it.price < 20.0f }
                     MealsFilterType.CUSTOM ->
-                        mealsToShow = meals.filter { it.name.compareTo(currentFilteringString.toString()) > -1 }
+                        mealsToShow = meals.filter { !it.name.contains(currentFilteringString.toString())}
                 }
 
                 if (showloadingUI)
@@ -185,9 +186,12 @@ class MealsViewModel(
                     empty.set(isEmpty())
                 }
                 //make the models
+                nameIds.clear()
+                mealNames.clear()
                 items.forEach {
                     val nameId = Models.NameId(it.name,it.id)
                     nameIds.add(nameId)
+                    mealNames.add(it.name)
                 }
             }
 
