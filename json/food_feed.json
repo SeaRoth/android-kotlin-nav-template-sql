@@ -16,7 +16,7 @@
     "businessAdminOf": [
       "b00002"
     ],
-    "id": 1
+    "id": "1"
   },
   "meals": [
     {
@@ -57,7 +57,7 @@
     },
     {
       "name": "Hot Fudge Ice Cream Bar Dessert",
-      "rating": 5,
+      "rating": 5.0,
       "price": 9.75,
       "description": "Layers of ice cream bars, hot fudge, caramel, whipped topping, and toffee pieces make this super easy Ice Cream Bar Cake look like you labored over it!",
       "notes": "This is an incredibly easy rich and satisfying ice cream dessert made with ice cream sandwiches and fudge sauce. This keeps in the freezer very well and can be eaten straight from the freezer.",
