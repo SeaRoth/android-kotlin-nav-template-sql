@@ -1,0 +1,95 @@
+{
+  "user": {
+    "name": "Steve Jobs",
+    "username": "SJobs1",
+    "email": "steve@apple.com",
+    "imageUrl": "https://i.imgur.com/yYN6uLu.png",
+    "favoriteMeals": [
+      "ms00001",
+      "mh00001"
+    ],
+    "lastLocation": "",
+    "favoriteBusinesses": [
+      "b00003",
+      "b00002"
+    ],
+    "businessAdminOf": [
+      "b00002"
+    ],
+    "id": 1
+  },
+  "meals": [
+    {
+      "name": "Caramel Apple Pie Crisp",
+      "rating": 4.8,
+      "price": 13.99,
+      "description": "Warm apple pie crisp topped with premium vanilla ice cream and salted caramel, then sprinkled with powdered sugar.",
+      "notes": "When our class visited an apple farm this fall, we realized that we all shared a common love apples dipped in caramel. We created this really easy dessert that the whole family can enjoy.",
+      "nutritionFacts": "Per Serving: 502 calories; 19.5 g fat; 80.8 g carbohydrates; 5.3 g protein; 46 mg cholesterol; 208 mg sodium.",
+      "imageUrl": [
+        "https://i.imgur.com/rOUjNpN.png",
+        "https://i.imgur.com/ewErHlS.png",
+        "https://i.imgur.com/NDLynL6.png",
+        "https://i.imgur.com/2nmUxF4.png",
+        "https://i.imgur.com/nI3bC4B.png"
+      ],
+      "mealId": "mc00001",
+      "businessId": "b00001",
+      "address": "555 red herring road los angeles, ca 91845"
+    },
+    {
+      "name": "Dark Chocolate Cake",
+      "rating": 4.9,
+      "price": 4.5,
+      "description": "This deli-style stalwart is wide-eyed-kid cake at its finest. The loose wedge of milk chocolate cake with a fluffy layer of whipped cream is topped with a solid ganache - and the all-important maraschino cherry has been the same since the bakery opened more than 50 years ago. It's light and airy and has a level of throw-back sweetness that conjures up Kodachrome memories of party hats and confetti.",
+      "notes": "This recipe features an icing made with cream cheese, cocoa, and cinnamon frosts this dark chocolate cake for an elegant dessert.",
+      "nutritionFacts": "Per Serving: 427 calories; 18.3 g fat; 63.5 g carbohydrates; 6.6 g protein; 103 mg cholesterol; 463 mg sodium.",
+      "imageUrl": [
+        "https://i.imgur.com/AkuuvbA.png",
+        "https://i.imgur.com/NNe7BDs.png",
+        "https://i.imgur.com/vDyH62D.png",
+        "https://i.imgur.com/P14BSke.png",
+        "https://i.imgur.com/WcP5Ept.png"
+      ],
+      "mealId": "md00001",
+      "businessId": "b00002",
+      "address": "2180 bitnami court One Plus, CA 93843"
+    },
+    {
+      "name": "Hot Fudge Ice Cream Bar Dessert",
+      "rating": 5,
+      "price": 9.75,
+      "description": "Layers of ice cream bars, hot fudge, caramel, whipped topping, and toffee pieces make this super easy Ice Cream Bar Cake look like you labored over it!",
+      "notes": "This is an incredibly easy rich and satisfying ice cream dessert made with ice cream sandwiches and fudge sauce. This keeps in the freezer very well and can be eaten straight from the freezer.",
+      "nutritionFacts": "Per Serving: 575 calories; 28.1 g fat; 70.7 g carbohydrates; 11.9 g protein; 31 mg cholesterol; 257 mg sodium.",
+      "imageUrl": [
+        "https://i.imgur.com/g46kERP.png",
+        "https://i.imgur.com/SbhyPhk.png",
+        "https://i.imgur.com/jn0Oyu1.png",
+        "https://i.imgur.com/5siDmxD.png",
+        "https://i.imgur.com/sFWz6Cn.png"
+      ],
+      "mealId": "mh00001",
+      "businessId": "b00003",
+      "address": "1337 Map Road Painting, CA 93834"
+    },
+    {
+      "name": "Skillet Chocolate Chip Cookie Sundae",
+      "rating": 4.3,
+      "price": 12.99,
+      "description": "Lady’s Chocolate Chip Skillet Cookie is a warm, ooey, gooey chocolate chip cookie topped with vanilla bean ice cream. It all starts with browning the butter in a cast iron skillet and adding both white and brown sugar, then stirring until nice and smooth.  It will look like smooth caramel and smells like homemade toffee.",
+      "notes": "A giant chocolate chip cookie baked in a skillet is topped with ice cream balls, hot fudge, whipped cream, and maraschino cherries.",
+      "nutritionFacts": "Per Serving: 539 calories; 28.4 g fat; 68.7 g carbohydrates; 5.8 g protein; 74 mg cholesterol; 300 mg sodium.",
+      "imageUrl": [
+        "https://i.imgur.com/vhC8K3G.png",
+        "https://i.imgur.com/6Sz2PLt.png",
+        "https://i.imgur.com/q1mFSME.png",
+        "https://i.imgur.com/1UrToqZ.png",
+        "https://i.imgur.com/tRFNsED.png"
+      ],
+      "mealId": "ms00001",
+      "businessId": "b00004",
+      "address": "9876 urgency road Exposed, CA 93847"
+    }
+  ]
+}
