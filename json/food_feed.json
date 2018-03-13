@@ -21,7 +21,7 @@
   "meals": [
     {
       "name": "Caramel Apple Pie Crisp",
-      "rating": 4.8,
+      "rating": 4.80,
       "price": 13.99,
       "description": "Warm apple pie crisp topped with premium vanilla ice cream and salted caramel, then sprinkled with powdered sugar.",
       "notes": "When our class visited an apple farm this fall, we realized that we all shared a common love apples dipped in caramel. We created this really easy dessert that the whole family can enjoy.",
@@ -39,8 +39,8 @@
     },
     {
       "name": "Dark Chocolate Cake",
-      "rating": 4.9,
-      "price": 4.5,
+      "rating": 4.90,
+      "price": 4.50,
       "description": "This deli-style stalwart is wide-eyed-kid cake at its finest. The loose wedge of milk chocolate cake with a fluffy layer of whipped cream is topped with a solid ganache - and the all-important maraschino cherry has been the same since the bakery opened more than 50 years ago. It's light and airy and has a level of throw-back sweetness that conjures up Kodachrome memories of party hats and confetti.",
       "notes": "This recipe features an icing made with cream cheese, cocoa, and cinnamon frosts this dark chocolate cake for an elegant dessert.",
       "nutritionFacts": "Per Serving: 427 calories; 18.3 g fat; 63.5 g carbohydrates; 6.6 g protein; 103 mg cholesterol; 463 mg sodium.",
@@ -57,7 +57,7 @@
     },
     {
       "name": "Hot Fudge Ice Cream Bar Dessert",
-      "rating": 5.0,
+      "rating": 5.00,
       "price": 9.75,
       "description": "Layers of ice cream bars, hot fudge, caramel, whipped topping, and toffee pieces make this super easy Ice Cream Bar Cake look like you labored over it!",
       "notes": "This is an incredibly easy rich and satisfying ice cream dessert made with ice cream sandwiches and fudge sauce. This keeps in the freezer very well and can be eaten straight from the freezer.",
@@ -75,7 +75,7 @@
     },
     {
       "name": "Skillet Chocolate Chip Cookie Sundae",
-      "rating": 4.3,
+      "rating": 4.30,
       "price": 12.99,
       "description": "Lady’s Chocolate Chip Skillet Cookie is a warm, ooey, gooey chocolate chip cookie topped with vanilla bean ice cream. It all starts with browning the butter in a cast iron skillet and adding both white and brown sugar, then stirring until nice and smooth.  It will look like smooth caramel and smells like homemade toffee.",
       "notes": "A giant chocolate chip cookie baked in a skillet is topped with ice cream balls, hot fudge, whipped cream, and maraschino cherries.",
