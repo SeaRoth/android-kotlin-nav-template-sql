@@ -51,7 +51,7 @@ class MealsRemoteDataSource private constructor(
      */
     override fun getMeals(callback: MealsDataSource.LoadMealsCallback) {
         appExecutors.networkIO.execute{
-            val url = "http://www.gamermessenger.com/savorlyapp/food_feed.json"
+            val url = "http://www.randastat.com/savorlyapp/food_feed.json"
 
             val request = Request.Builder().url(url).build()
 

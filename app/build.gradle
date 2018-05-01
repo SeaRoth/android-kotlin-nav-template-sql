@@ -75,8 +75,8 @@ dependencies {
     kapt "android.arch.persistence.room:compiler:$rootProject.roomVersion"
 
     annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
-    androidTestCompile "com.android.support.test:runner:$rootProject.ext.runnerVersion"
-    androidTestCompile "com.android.support.test:rules:$rootProject.ext.rulesVersion"
+    androidTestImplementation "com.android.support.test:runner:$rootProject.ext.runnerVersion"
+    androidTestImplementation "com.android.support.test:rules:$rootProject.ext.rulesVersion"
 
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     // Resolve conflicts between main and test APK:
